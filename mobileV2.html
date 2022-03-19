@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<!-- async defer 非同步的方式include -->
+<script async defer src="https://maps.google.com/maps/api/js?key=AIzaSyAICmrveLR0eGz-3PcOeoY_nhWzekMHEn0&libraries=places"></script>
+
+<script src="json_getlocation.js"></script>
+
+
+<script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+
+
+
+</head>
+
+<body>
+
+<div data-role="page" id="page1">
+  <div data-role="header">
+    <h1>Welcome To My FirstApp</h1>
+    <a href="#page2" class="ui-btn ui-btn-right ui-corner-all ui-shadow ui-icon-search ui-btn-icon-left">第二頁</a>
+	
+	</div>
+   <div data-role="main" class="ui-content">
+		<div data-role="navbar">
+		  <ul>
+			<li><a href="#" data-icon="home"  id="p1_b1">功能1-取得json</a></li>
+			<li><a href="#" data-icon="arrow-r" id="p1_b2">功能2-取得location</a></li>
+			<li><a href="#" data-icon="search" id="p1_b3">功能3-取得Map location</a></li>
+			<li><a href="#page4" data-icon="search" data-transition="slide" id="p1_b4">功能4-標記群組</a></li>
+			<li><a href="#page5" data-icon="search" data-transition="slide" id="p1_b5">功能5-數量呈現</a></li>
+			<li><a href="#page6" data-icon="search" data-transition="slide" id="p1_b6">功能6-距離呈現</a></li>
+			<li><a href="#page7" data-icon="search" data-transition="slide" id="p1_b7">功能7-地理位置</a></li>
+		  </ul>
+		</div>
+		<div id="p1_d1"></div>
+		<div id="p1_d2"></div>
+	</div>
+  <div data-role="footer">
+  	<h1>Footer Text</h1>
+  </div>
+
+</div>
+<div data-role="page" data-dialog="true" id="setting">
+  <div data-role="header">
+    <h1>imformation</h1>
+  </div>
+
+   <div data-role="main" class="ui-content">
+    <div data-role="main" class="ui-content">
+    	<p>Name:XXX</p>
+        <p>Name:XXX</p>
+        <p>Name:XXX</p>
+    </div>
+  </div>
+  <div data-role="footer">
+  	<h1>Footer Text</h1>
+  </div>	
+</div>
+
+<div data-role="page"  id="page2">
+  <div data-role="header">
+    <h1>Open Datasource</h1>
+	<a href="#setting" class="ui-btn ui-btn-right ui-corner-all ui-shadow ui-icon-search ui-btn-icon-left">setting</a>
+  </div>
+
+   <div data-role="main" class="ui-content">
+    <div data-role="main" class="ui-content">
+    	<a href="#page3" class="ui-btn">功能1-取得json</a>
+        <a href="#" class="ui-btn" data-rel="back">Go Back</a>
+    </div>
+  </div>
+  <div data-role="footer">
+  	<h1>Footer Text</h1>
+  </div>
+</div>
+
+<div data-role="page"  id="page3">
+
+  <div data-role="header">
+  
+    <h1>Open Datasource</h1>
+	<a href="#page1" class="ui-btn ui-btn-right ui-corner-all ui-shadow ui-icon-search ui-btn-icon-left">主畫面</a>
+  </div>
+
+   <div data-role="main" class="ui-content">
+		<div id="p3_d1"></div>
+  </div>
+  <div data-role="footer">
+  	<h1>Footer Text</h1>
+  </div>
+</div>
+
+
+
+<div data-role="page"  id="page4">
+
+  <div data-role="header">
+  
+    <h1>Open Datasource</h1>
+	<a href="#page1" class="ui-btn ui-btn-right ui-corner-all ui-shadow ui-icon-search ui-btn-icon-left">主畫面</a>
+  </div>
+
+   <div data-role="main" class="ui-content">
+		<a  class="ui-btn"  id="p4_b1" >功能1-取得json</a>
+		<div id="p4_d1"></div>
+  </div>
+  <div data-role="footer">
+  	<h1>Footer Text</h1>
+  </div>
+</div>
+
+
+<div data-role="page"  id="page5">
+
+  <div data-role="header">
+  
+    <h1>Open Datasource</h1>
+	<a href="#page1" class="ui-btn ui-btn-right ui-corner-all ui-shadow ui-icon-search ui-btn-icon-left">主畫面</a>
+  </div>
+
+   <div data-role="main" class="ui-content">
+		<a  class="ui-btn"  id="p5_b1" >功能1-取得json</a>
+		<div id="p5_d1"></div>
+  </div>
+  <div data-role="footer">
+  	<h1>Footer Text</h1>
+  </div>
+</div>
+
+
+<div data-role="page"  id="page6">
+
+  <div data-role="header">
+  
+    <h1>Open Datasource</h1>
+	<a href="#page1" class="ui-btn ui-btn-right ui-corner-all ui-shadow ui-icon-search ui-btn-icon-left">主畫面</a>
+  </div>
+
+   <div data-role="main" class="ui-content">
+		<div>
+		  <label for="volume">距離(公里)</label>
+		  <input type="range" id="p6_t1" name="volume" min="0" max="500" value="20" data-highlight =true data-show-value=true> 
+		  
+		</div>
+		
+		<a  class="ui-btn"  id="p6_b1" >功能1-取得json</a>
+		<div id="p6_d1"></div>
+		<div id="p6_d2"></div>
+  </div>
+  <div data-role="footer">
+  	<h1>Footer Text</h1>
+  </div>
+</div>
+
+
+<div data-role="page"  id="page7">
+
+  <div data-role="header">
+  
+    <h1>Open Datasource</h1>
+	<a href="#page1" class="ui-btn ui-btn-right ui-corner-all ui-shadow ui-icon-search ui-btn-icon-left">主畫面</a>
+  </div>
+
+   <div data-role="main" class="ui-content">
+		<div>
+		  <label for="volume">距離(公里)</label>
+		  <input type="range" id="p7_t1" name="volume" min="0" max="500" value="20" data-highlight =true data-show-value=true> 
+		  
+		</div>
+		
+		<a  class="ui-btn"  id="p7_b1" >功能1-取得json</a>
+		<div id="p7_d1"></div>
+		<div id="p7_d2"></div>
+  </div>
+  <div data-role="footer">
+  	<h1>Footer Text</h1>
+  </div>
+</div>
+
+
+
+</body>
+</html>
